@@ -5,10 +5,12 @@ public class Accessory {
 
     private String name;
     private double price;
+    private String imagePath;
 
     public Accessory(String name, double price) {
         this.name = name;
         this.price = price;
+        this.imagePath = imagePath;
     }
 
     public String getName() {
@@ -29,6 +31,11 @@ public class Accessory {
     @Override
     public String toString() {
         return name + " — " + price + " грн";
+    }
+
+
+    public String getImagePath() {
+        return imagePath;
     }
 
 }

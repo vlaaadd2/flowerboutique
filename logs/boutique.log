@@ -1,75 +1,89 @@
-2026-05-15 22:21:08 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
-2026-05-15 22:21:08 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
-2026-05-15 22:21:09 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
-2026-05-15 22:21:09 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
-2026-05-15 22:21:09 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:21:09 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
-2026-05-15 22:21:09 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:21:10 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
-2026-05-15 22:21:27 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
-2026-05-15 22:21:27 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
-2026-05-15 22:21:27 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 0 квітів з БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.gui.MainApp - БД порожня — завантажуємо стартовий асортимент.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Троянда' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Троянда' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Тюльпан' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Тюльпан' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Лілія' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Лілія' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Хризантема' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Хризантема' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Орхідея' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Орхідея' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Соняшник' додано до БД.
-2026-05-15 22:21:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - Квітку 'Соняшник' додано до БД.
-2026-05-15 22:21:28 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
-2026-05-15 22:21:28 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:21:28 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
-2026-05-15 22:21:45 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 5 шт.
-2026-05-15 22:21:45 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 5 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 4 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 4 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 3 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 3 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 2 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 2 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 1 шт.
-2026-05-15 22:21:46 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 1 шт.
-2026-05-15 22:21:47 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 0 шт.
-2026-05-15 22:21:47 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Орхідея' до букета. Залишок: 0 шт.
-2026-05-15 22:21:49 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:50 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 1 шт.
-2026-05-15 22:21:50 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 1 шт.
-2026-05-15 22:21:51 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:52 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 2 шт.
-2026-05-15 22:21:52 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 2 шт.
-2026-05-15 22:21:54 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:55 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 3 шт.
-2026-05-15 22:21:55 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 3 шт.
-2026-05-15 22:21:55 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:56 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 4 шт.
-2026-05-15 22:21:56 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 4 шт.
-2026-05-15 22:21:57 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:58 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 5 шт.
-2026-05-15 22:21:58 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 5 шт.
-2026-05-15 22:21:58 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Орхідея
-2026-05-15 22:21:59 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Орхідея': 6 шт.
-2026-05-15 22:21:59 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Орхідея' з букета. Залишок: 6 шт.
-2026-05-15 22:22:41 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
-2026-05-15 22:22:41 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
-2026-05-15 22:22:42 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
-2026-05-15 22:22:42 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
-2026-05-15 22:22:42 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:22:42 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
-2026-05-15 22:22:42 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:22:43 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
-2026-05-15 22:24:19 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
-2026-05-15 22:24:20 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
-2026-05-15 22:24:20 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
-2026-05-15 22:24:20 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
-2026-05-15 22:24:20 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:24:20 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
-2026-05-15 22:24:20 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
-2026-05-15 22:24:21 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
+2026-05-16 00:00:04 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
+2026-05-16 00:00:05 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
+2026-05-16 00:00:05 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
+2026-05-16 00:00:05 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
+2026-05-16 00:00:05 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
+2026-05-16 00:00:05 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
+2026-05-16 00:00:06 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
+2026-05-16 00:00:07 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
+2026-05-16 00:00:26 [main] INFO  org.example.Main - ========== Запуск Flower Boutique ==========
+2026-05-16 00:00:27 [JavaFX-Launcher] INFO  org.example.gui.MainApp - Ініціалізація додатку.
+2026-05-16 00:00:27 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
+2026-05-16 00:00:27 [JavaFX-Launcher] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
+2026-05-16 00:00:27 [JavaFX-Launcher] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
+2026-05-16 00:00:27 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
+2026-05-16 00:00:27 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
+2026-05-16 00:00:28 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
+2026-05-16 00:01:09 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 7 шт.
+2026-05-16 00:01:09 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Лілія' до букета. Залишок: 7 шт.
+2026-05-16 00:01:10 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 6 шт.
+2026-05-16 00:01:10 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Лілія' до букета. Залишок: 6 шт.
+2026-05-16 00:01:11 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 5 шт.
+2026-05-16 00:01:11 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Лілія' до букета. Залишок: 5 шт.
+2026-05-16 00:01:11 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 4 шт.
+2026-05-16 00:01:11 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Лілія' до букета. Залишок: 4 шт.
+2026-05-16 00:01:13 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:01:14 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:01:16 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:01:21 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Соняшник': 19 шт.
+2026-05-16 00:01:21 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Соняшник' до букета. Залишок: 19 шт.
+2026-05-16 00:01:25 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Троянда': 15 шт.
+2026-05-16 00:01:25 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Троянда' до букета. Залишок: 15 шт.
+2026-05-16 00:01:26 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Троянда
+2026-05-16 00:01:27 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Соняшник
+2026-05-16 00:01:29 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:01:32 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Троянда
+2026-05-16 00:01:33 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Аксесуар '🎀 Атласна стрічка' додано до букета.
+2026-05-16 00:01:34 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибраний аксесуар: 🎀 Атласна стрічка
+2026-05-16 00:01:36 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Аксесуар '📦 Подарункова упаковка' додано до букета.
+2026-05-16 00:01:37 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Аксесуар '💌 Листівка' додано до букета.
+2026-05-16 00:01:38 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибраний аксесуар: 💌 Листівка
+2026-05-16 00:01:40 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибраний аксесуар: 📦 Подарункова упаковка
+2026-05-16 00:01:42 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Троянда
+2026-05-16 00:01:43 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Троянда': 16 шт.
+2026-05-16 00:01:43 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Троянда' з букета. Залишок: 16 шт.
+2026-05-16 00:01:49 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Букет відсортовано за свіжістю.
+2026-05-16 00:02:02 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Пошук [80.0-90.0] см: знайдено 1 квіток.
+2026-05-16 00:02:28 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:02:32 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 5 шт.
+2026-05-16 00:02:32 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Лілія' з букета. Залишок: 5 шт.
+2026-05-16 00:02:33 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:02:33 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 6 шт.
+2026-05-16 00:02:33 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Лілія' з букета. Залишок: 6 шт.
+2026-05-16 00:02:35 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:02:36 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 7 шт.
+2026-05-16 00:02:36 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Лілія' з букета. Залишок: 7 шт.
+2026-05-16 00:02:37 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Соняшник
+2026-05-16 00:02:37 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Соняшник': 20 шт.
+2026-05-16 00:02:37 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Соняшник' з букета. Залишок: 20 шт.
+2026-05-16 00:02:38 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибрана квітка: Лілія
+2026-05-16 00:02:39 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 8 шт.
+2026-05-16 00:02:39 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Видалено 'Лілія' з букета. Залишок: 8 шт.
+2026-05-16 00:02:45 [JavaFX Application Thread] DEBUG org.example.gui.MainApp - Вибраний аксесуар: 🎀 Атласна стрічка
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Видалено 'Тюльпан' з букета. Залишок: 5 шт.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Букет відсортовано за свіжістю.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Пошук [50.0-65.0] см: знайдено 1 квіток.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Пошук [50.0-65.0] см: знайдено 2 квіток.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Пошук [1.0-10.0] см: знайдено 0 квіток.
+2026-05-16 00:04:12 [main] WARN  org.example.services.BouquetService - Квітка 'Троянда' недоступна (склад = 0).
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Додано 'Троянда' до букета. Залишок: 4 шт.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Букет відсортовано за свіжістю.
+2026-05-16 00:04:12 [main] INFO  org.example.services.BouquetService - Пошук [45.0-45.0] см: знайдено 1 квіток.
+2026-05-16 00:04:13 [main] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
+2026-05-16 00:04:13 [main] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
+2026-05-16 00:04:13 [main] DEBUG org.example.dao.DatabaseManager - Отримано 12 квітів з БД.
+2026-05-16 00:04:13 [main] INFO  org.example.dao.DatabaseManager - Квітку 'Троянда' додано до БД.
+2026-05-16 00:04:13 [main] DEBUG org.example.dao.DatabaseManager - Отримано 13 квітів з БД.
+2026-05-16 00:04:13 [main] DEBUG org.example.dao.DatabaseManager - Отримано 13 квітів з БД.
+2026-05-16 00:04:13 [main] INFO  org.example.dao.DatabaseManager - Склад 'Троянда': 15 шт.
+2026-05-16 00:04:13 [main] DEBUG org.example.dao.DatabaseManager - Отримано 13 квітів з БД.
+2026-05-16 00:04:14 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Ініціалізація додатку.
+2026-05-16 00:04:14 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Таблиця flowers перевірена/створена.
+2026-05-16 00:04:14 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - DatabaseManager ініціалізовано. БД: jdbc:sqlite:boutique.db
+2026-05-16 00:04:14 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 13 квітів з БД.
+2026-05-16 00:04:14 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Побудова головного вікна.
+2026-05-16 00:04:14 [JavaFX Application Thread] DEBUG org.example.dao.DatabaseManager - Отримано 13 квітів з БД.
+2026-05-16 00:04:16 [JavaFX Application Thread] INFO  org.example.gui.MainApp - Головне вікно відображено.
+2026-05-16 00:04:17 [JavaFX Application Thread] INFO  org.example.dao.DatabaseManager - Склад 'Лілія': 11 шт.
+2026-05-16 00:04:17 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Додано 'Лілія' до букета. Залишок: 11 шт.
+2026-05-16 00:04:18 [JavaFX Application Thread] INFO  org.example.services.BouquetService - Букет відсортовано за свіжістю.
