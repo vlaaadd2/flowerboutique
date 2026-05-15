@@ -26,20 +26,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Головний клас JavaFX-додатку «Квітковий бутік».
- * Відповідає за побудову та управління графічним інтерфейсом.
- */
+
 public class MainApp extends Application {
 
     private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
 
-    // ── Бізнес-логіка ────────────────────────────────────────
+
     private DatabaseManager dbManager;
     private Bouquet currentBouquet;
     private BouquetService bouquetService;
 
-    // ── UI-компоненти ─────────────────────────────────────────
+
     private Pane    visualBouquetPane;
     private Label   totalPriceLabel;
     private Label   bouquetCountLabel;
@@ -47,13 +44,13 @@ public class MainApp extends Application {
     private ListView<Flower> assortmentListView;
     private ListView<Flower> bouquetListView;
 
-    // ── Стан drag-n-drop ──────────────────────────────────────
+
     private final Map<Flower, ImageView> visualMap = new HashMap<>();
     private double      mouseAnchorX, mouseAnchorY;
     private ImageView   selectedImageView = null;
     private Flower      selectedFlowerData = null;
 
-    // ── Константи ─────────────────────────────────────────────
+
     private static final String COLOR_BG        = "#0D0D0D";
     private static final String COLOR_PANEL     = "#161616";
     private static final String COLOR_CARD      = "#1C1C1C";
@@ -67,45 +64,51 @@ public class MainApp extends Application {
 
     @Override
     public void init() {
+
         logger.info("Ініціалізація додатку.");
         dbManager     = new DatabaseManager();
         currentBouquet = new Bouquet();
         bouquetService = new BouquetService(dbManager);
 
         if (dbManager.getAllFlowers().isEmpty()) {
+
             logger.info("БД порожня — завантажуємо стартовий асортимент.");
             seedDatabase();
+
         }
     }
 
     private void seedDatabase() {
-        dbManager.addFlowerToDB(new Rose(150.0, 60.0, 10, "rose.png",     true,  5));
-        dbManager.addFlowerToDB(new Rose(120.0, 35.0,  8, "rose.png",     false, 8));
-        dbManager.addFlowerToDB(new Tulip(80.0, 45.0,  9, "tulip.png",    10));
-        dbManager.addFlowerToDB(new Tulip(70.0, 40.0,  6, "tulip.png",     7));
-        dbManager.addFlowerToDB(new Lily(200.0, 70.0,  9, "lily.png",     true,  4));
-        dbManager.addFlowerToDB(new Lily(180.0, 65.0,  7, "lily.png",     false, 6));
-        dbManager.addFlowerToDB(new Chrysanthemum(90.0,  50.0, 8, "chrysanthemum.png", "Біла",   12));
-        dbManager.addFlowerToDB(new Chrysanthemum(95.0,  55.0, 7, "chrysanthemum.png", "Жовта",   9));
-        dbManager.addFlowerToDB(new Orchid(350.0, 80.0, 10, "orchid.png",  5, 3));
-        dbManager.addFlowerToDB(new Orchid(300.0, 75.0,  8, "orchid.png",  3, 5));
-        dbManager.addFlowerToDB(new Sunflower(60.0, 90.0, 9, "sunflower.png", 15.0, 15));
-        dbManager.addFlowerToDB(new Sunflower(55.0, 85.0, 7, "sunflower.png", 12.0, 10));
+
+        dbManager.addFlowerToDB(new Rose(150.0, 60.0, 10, "rose.png",     true,  10));
+        dbManager.addFlowerToDB(new Rose(120.0, 35.0,  8, "rose.png",     false, 16));
+        dbManager.addFlowerToDB(new Tulip(80.0, 45.0,  9, "tulip.png",    20));
+        dbManager.addFlowerToDB(new Tulip(70.0, 40.0,  6, "tulip.png",     14));
+        dbManager.addFlowerToDB(new Lily(200.0, 70.0,  9, "lily.png",     true,  8));
+        dbManager.addFlowerToDB(new Lily(180.0, 65.0,  7, "lily.png",     false, 12));
+        dbManager.addFlowerToDB(new Chrysanthemum(90.0,  50.0, 8, "chrysanthemum.png", "Біла",   24));
+        dbManager.addFlowerToDB(new Chrysanthemum(95.0,  55.0, 7, "chrysanthemum.png", "Жовта",   18));
+        dbManager.addFlowerToDB(new Orchid(350.0, 80.0, 10, "orchid.png",  5, 6));
+        dbManager.addFlowerToDB(new Orchid(300.0, 75.0,  8, "orchid.png",  3, 10));
+        dbManager.addFlowerToDB(new Sunflower(60.0, 90.0, 9, "sunflower.png", 15.0, 30));
+        dbManager.addFlowerToDB(new Sunflower(55.0, 85.0, 7, "sunflower.png", 12.0, 20));
+
     }
 
     @Override
     public void start(Stage primaryStage) {
+
         logger.info("Побудова головного вікна.");
         primaryStage.setTitle("🌸 Flower Boutique");
 
-        // ── Корінний лейаут ───────────────────────────────────
+
         HBox root = new HBox(0);
         root.setStyle("-fx-background-color: " + COLOR_BG + ";");
 
-        // ── Ліва бічна панель ─────────────────────────────────
+
         VBox sidebar = buildSidebar(primaryStage);
 
-        // ── Права панель (канвас букета) ──────────────────────
+
         StackPane canvasWrapper = buildCanvas();
 
         HBox.setHgrow(canvasWrapper, Priority.ALWAYS);
@@ -118,16 +121,19 @@ public class MainApp extends Application {
         primaryStage.setMinWidth(900);
         primaryStage.setMinHeight(600);
         primaryStage.show();
+
         logger.info("Головне вікно відображено.");
+
     }
 
-    // ─────────────────────────────────────────────────────────
-    // SIDEBAR
-    // ─────────────────────────────────────────────────────────
+
+
     private VBox buildSidebar(Stage owner) {
+
         VBox sidebar = new VBox(0);
         sidebar.setPrefWidth(360);
         sidebar.setMinWidth(320);
+
         sidebar.setStyle("-fx-background-color: " + COLOR_PANEL + ";"
                 + "-fx-border-color: " + COLOR_BORDER + ";"
                 + "-fx-border-width: 0 1 0 0;");
@@ -152,34 +158,37 @@ public class MainApp extends Application {
 
         header.getChildren().addAll(brandEmoji, brandName, brandSub);
 
-        // ── Асортимент ────────────────────────────────────────
+
         VBox assortmentSection = new VBox(10);
         assortmentSection.setPadding(new Insets(20, 16, 12, 16));
 
         Label assortLabel = buildSectionLabel("АСОРТИМЕНТ");
+
         assortmentListView = new ListView<>();
         assortmentListView.getItems().addAll(dbManager.getAllFlowers());
         assortmentListView.setPrefHeight(200);
         assortmentListView.getStyleClass().add("boutique-list");
-        // Власний рендерер клітинки
+
         assortmentListView.setCellFactory(lv -> new FlowerListCell());
 
         Button addBtn = buildPrimaryButton("➕  Додати до букета", COLOR_ACCENT);
 
         assortmentSection.getChildren().addAll(assortLabel, assortmentListView, addBtn);
 
-        // ── Букет ─────────────────────────────────────────────
+
         VBox bouquetSection = new VBox(10);
         bouquetSection.setPadding(new Insets(4, 16, 12, 16));
 
-        // Рядок «У букеті» + лічильник
+
         HBox bouquetHeader = new HBox(8);
         bouquetHeader.setAlignment(Pos.CENTER_LEFT);
         Label bouquetLabel2 = buildSectionLabel("У БУКЕТІ");
+
         bouquetCountLabel = new Label("0 шт.");
         bouquetCountLabel.setStyle("-fx-font-size: 11px; -fx-text-fill: " + COLOR_MUTED + ";"
                 + "-fx-padding: 3 8 3 8; -fx-background-radius: 10;"
                 + "-fx-background-color: " + COLOR_BORDER + ";");
+
         bouquetHeader.getChildren().addAll(bouquetLabel2, bouquetCountLabel);
 
         bouquetListView = new ListView<>();
@@ -195,7 +204,7 @@ public class MainApp extends Application {
         bouquetSection.getChildren().addAll(bouquetHeader, bouquetListView,
                 sortBtn, searchBtn, removeButton);
 
-        // ── Підсумок вартості ─────────────────────────────────
+
         VBox priceBox = new VBox(6);
         priceBox.setPadding(new Insets(16, 16, 24, 16));
         priceBox.setStyle("-fx-border-color: " + COLOR_BORDER + ";"
@@ -225,8 +234,10 @@ public class MainApp extends Application {
                 showAlert("Квітка «" + sel.getName() + "» закінчилась на складі!");
                 return;
             }
+
             addFlowerToCanvas(sel);
         });
+
         sortBtn.setOnAction(e -> applySort());
         searchBtn.setOnAction(e -> showSearchDialog(owner));
         removeButton.setOnAction(e -> removeSelectedFlower());
@@ -234,14 +245,13 @@ public class MainApp extends Application {
         return sidebar;
     }
 
-    // ─────────────────────────────────────────────────────────
-    // CANVAS
-    // ─────────────────────────────────────────────────────────
+
+
     private StackPane buildCanvas() {
         visualBouquetPane = new Pane();
         visualBouquetPane.setStyle("-fx-background-color: transparent;");
 
-        // Фоновий текст-підказка
+
         VBox hint = new VBox(8);
         hint.setAlignment(Pos.CENTER);
         Label hintEmoji = new Label("💐");
@@ -259,40 +269,48 @@ public class MainApp extends Application {
         return stack;
     }
 
-    // ─────────────────────────────────────────────────────────
-    // ДОДАВАННЯ КВІТКИ НА КАНВАС
-    // ─────────────────────────────────────────────────────────
+
+
     private void addFlowerToCanvas(Flower flower) {
+
         boolean added = bouquetService.addFlowerToBouquet(currentBouquet, flower);
-        if (!added) { showAlert("Квітка недоступна."); return; }
+
+        if (!added) {
+            showAlert("Квітка недоступна.");
+            return;
+        }
 
         bouquetListView.getItems().add(flower);
         assortmentListView.refresh();
         updateStats();
 
         try {
+
             InputStream is = getClass().getResourceAsStream("/" + flower.getImagePath());
+
             if (is != null) {
+
                 ImageView iv = new ImageView(new Image(is));
                 iv.setFitHeight(170);
                 iv.setPreserveRatio(true);
 
-                // Тінь за замовчуванням
+
                 DropShadow shadow = new DropShadow(18, Color.BLACK);
                 shadow.setOffsetY(6);
                 iv.setEffect(shadow);
 
-                // Стартова позиція — по діагоналі
+
                 int n = visualMap.size();
                 iv.setX(40 + (n % 8) * 50.0);
                 iv.setY(40 + (n / 8) * 60.0);
 
-                // Drag
+
                 iv.setOnMousePressed(e -> {
                     mouseAnchorX = e.getX();
                     mouseAnchorY = e.getY();
                     selectFlower(iv, flower);
                 });
+
                 iv.setOnMouseDragged(e -> {
                     double paneX = visualBouquetPane.localToScene(0, 0).getX();
                     double paneY = visualBouquetPane.localToScene(0, 0).getY();
@@ -302,46 +320,67 @@ public class MainApp extends Application {
 
                 visualMap.put(flower, iv);
                 visualBouquetPane.getChildren().add(iv);
+
             } else {
+
                 logger.warn("Зображення не знайдено: {}", flower.getImagePath());
+
             }
+
         } catch (Exception ex) {
+
             logger.error("Помилка завантаження зображення: {}", ex.getMessage(), ex);
+
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    // СОРТУВАННЯ
-    // ─────────────────────────────────────────────────────────
+
+
     private void applySort() {
+
         bouquetService.sortFlowersByFreshness(currentBouquet);
         bouquetListView.getItems().setAll(currentBouquet.getFlowers());
 
         double x = 50, y = 50;
+
         for (Flower f : currentBouquet.getFlowers()) {
+
             ImageView iv = visualMap.get(f);
-            if (iv != null) { iv.setX(x); iv.setY(y); iv.toFront(); x += 42; y += 18; }
+
+            if (iv != null) {
+
+                iv.setX(x);
+                iv.setY(y);
+                iv.toFront();
+
+                x += 42; y += 18;
+
+            }
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    // ВИДАЛЕННЯ
-    // ─────────────────────────────────────────────────────────
+
+
     private void removeSelectedFlower() {
-        if (selectedImageView == null || selectedFlowerData == null) return;
+
+        if (selectedImageView == null || selectedFlowerData == null){
+            return;
+        }
+
         bouquetService.removeFlowerFromBouquet(currentBouquet, selectedFlowerData);
         bouquetListView.getItems().remove(selectedFlowerData);
         visualBouquetPane.getChildren().remove(selectedImageView);
         visualMap.remove(selectedFlowerData);
         assortmentListView.refresh();
+
         clearSelection();
         updateStats();
+
     }
 
-    // ─────────────────────────────────────────────────────────
-    // ДІАЛОГ ПОШУКУ
-    // ─────────────────────────────────────────────────────────
+
     private void showSearchDialog(Stage owner) {
+
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(owner);
@@ -375,11 +414,14 @@ public class MainApp extends Application {
         Button findBtn = buildPrimaryButton("Знайти", COLOR_SUCCESS);
         findBtn.setMaxWidth(Double.MAX_VALUE);
         findBtn.setOnAction(e -> {
+
             try {
                 double min = Double.parseDouble(minF.getText());
                 double max = Double.parseDouble(maxF.getText());
+
                 List<Flower> found = bouquetService.findFlowersByStemLength(currentBouquet, min, max);
                 results.getItems().setAll(found);
+
                 if (found.isEmpty())
                     results.setPlaceholder(styledLabel("Нічого не знайдено"));
             } catch (NumberFormatException ex) {
@@ -394,57 +436,75 @@ public class MainApp extends Application {
         sc.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         dialog.setScene(sc);
         dialog.show();
+
     }
 
-    // ─────────────────────────────────────────────────────────
-    // ВИБІР КВІТКИ
-    // ─────────────────────────────────────────────────────────
+
+
     private void selectFlower(ImageView iv, Flower f) {
+
         clearSelection();
         selectedImageView  = iv;
         selectedFlowerData = f;
 
         DropShadow glow = new DropShadow(30, Color.web(COLOR_ACCENT));
         glow.setSpread(0.25);
+
         selectedImageView.setEffect(glow);
         selectedImageView.toFront();
         removeButton.setVisible(true);
         bouquetListView.getSelectionModel().select(f);
+
         logger.debug("Вибрана квітка: {}", f.getName());
+
     }
 
     private void clearSelection() {
+
         if (selectedImageView != null) {
+
             DropShadow shadow = new DropShadow(18, Color.BLACK);
             shadow.setOffsetY(6);
+
             selectedImageView.setEffect(shadow);
+
         }
+
         selectedImageView  = null;
         selectedFlowerData = null;
         removeButton.setVisible(false);
+
     }
 
-    // ─────────────────────────────────────────────────────────
-    // ДОПОМІЖНІ МЕТОДИ
-    // ─────────────────────────────────────────────────────────
+
+
     private void updateStats() {
+
         int count = currentBouquet.getFlowers().size();
+
         bouquetCountLabel.setText(count + " шт.");
         totalPriceLabel.setText(
                 String.format("%,.2f грн", currentBouquet.getTotalPrice()));
+
     }
 
     private Label buildSectionLabel(String text) {
+
         Label l = new Label(text);
+
         l.setStyle("-fx-font-size: 10px; -fx-font-weight: bold;"
                 + "-fx-text-fill: " + COLOR_MUTED + ";"
                 + "-fx-letter-spacing: 2px; -fx-padding: 0 0 4 0;");
+
         return l;
+
     }
 
     private Button buildPrimaryButton(String text, String color) {
+
         Button b = new Button(text);
         b.setMaxWidth(Double.MAX_VALUE);
+
         b.setStyle("-fx-background-color: " + color + ";"
                 + "-fx-text-fill: white;"
                 + "-fx-font-size: 13px;"
@@ -456,13 +516,17 @@ public class MainApp extends Application {
                 + "-fx-opacity: 0.85;"));
         b.setOnMouseExited(e -> b.setStyle(b.getStyle()
                 .replace("-fx-opacity: 0.85;", "")));
+
         return b;
+
     }
 
     private TextField buildTextField(String prompt) {
+
         TextField tf = new TextField();
         tf.setPromptText(prompt);
         tf.setPrefWidth(100);
+
         tf.setStyle("-fx-background-color: " + COLOR_CARD + ";"
                 + "-fx-text-fill: " + COLOR_TEXT + ";"
                 + "-fx-prompt-text-fill: " + COLOR_MUTED + ";"
@@ -470,30 +534,32 @@ public class MainApp extends Application {
                 + "-fx-border-color: " + COLOR_BORDER + ";"
                 + "-fx-border-radius: 6;"
                 + "-fx-padding: 8;");
+
         return tf;
+
     }
 
     private Label styledLabel(String text) {
+
         Label l = new Label(text);
         l.setStyle("-fx-text-fill: " + COLOR_MUTED + "; -fx-font-size: 12px;");
+
         return l;
     }
 
     private void showAlert(String msg) {
+
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Увага");
         alert.setHeaderText(null);
         alert.setContentText(msg);
         alert.showAndWait();
+
     }
 
-    // ─────────────────────────────────────────────────────────
-    // КАСТОМНА КЛІТИНКА СПИСКУ
-    // ─────────────────────────────────────────────────────────
-    /**
-     * FlowerListCell — кастомний рендерер рядка списку.
-     * Відображає emoji-іконку, назву, ціну та індикатор складу.
-     */
+
+
+
     private static class FlowerListCell extends ListCell<Flower> {
 
         private static final Map<String, String> EMOJI = Map.of(
@@ -513,6 +579,7 @@ public class MainApp extends Application {
         private final Label stock  = new Label();
 
         FlowerListCell() {
+
             box.setAlignment(Pos.CENTER_LEFT);
             box.setPadding(new Insets(6, 10, 6, 10));
 
@@ -527,6 +594,7 @@ public class MainApp extends Application {
 
             Region spacer = new Region();
             HBox.setHgrow(spacer, Priority.ALWAYS);
+
             info.getChildren().addAll(name, detail);
             box.getChildren().addAll(icon, info, spacer, stock);
             setGraphic(box);
@@ -535,33 +603,49 @@ public class MainApp extends Application {
 
         @Override
         protected void updateItem(Flower flower, boolean empty) {
+
             super.updateItem(flower, empty);
+
             if (empty || flower == null) {
+
                 setGraphic(null);
                 return;
+
             }
+
             icon.setText(EMOJI.getOrDefault(flower.getName(), "🌺"));
+
             name.setText(flower.getName() + "  ·  " +
                     String.format("%.0f грн", flower.getPrice()));
             detail.setText(flower.getStemLength() + " см  |  свіжість "
                     + flower.getFreshnessLevel() + "/10");
 
             int qty = flower.getStockQuantity();
+
             if (qty > 5) {
+
                 stock.setText(qty + " шт");
                 stock.setStyle(stock.getStyle().replaceAll("-fx-background-color:[^;]+;", "")
                         + "-fx-background-color: #1A3A2A; -fx-text-fill: #27AE60;");
+
             } else if (qty > 0) {
+
                 stock.setText(qty + " шт");
                 stock.setStyle(stock.getStyle().replaceAll("-fx-background-color:[^;]+;", "")
                         + "-fx-background-color: #3A2A1A; -fx-text-fill: #C8963E;");
+
             } else {
+
                 stock.setText("немає");
                 stock.setStyle(stock.getStyle().replaceAll("-fx-background-color:[^;]+;", "")
                         + "-fx-background-color: #2A1A1A; -fx-text-fill: #C0392B;");
             }
+
             setGraphic(box);
             setText(null);
+
         }
+
     }
+
 }
