@@ -249,6 +249,9 @@ public class MainApp extends Application {
 
             Flower sel = assortmentListView.getSelectionModel().getSelectedItem();
 
+            //logger.error("КРИТИЧНА ПОМИЛКА: Збій системи при спробі обробити квітку '{}'!", sel.getName());
+
+
             if (sel == null) {
                 showAlert("Оберіть квітку зі списку асортименту.");
                 return;
