@@ -1,0 +1,84 @@
+/* ===== FLOWER BOUTIQUE — Global Styles ===== */
+
+.root {
+    -fx-background-color: #0D0D0D;
+    -fx-font-family: 'Segoe UI', 'SF Pro Display', Helvetica, Arial, sans-serif;
+}
+
+/* ── Списки ─────────────────────────────── */
+.boutique-list {
+    -fx-background-color: #161616;
+    -fx-border-color: #2A2A2A;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-control-inner-background: #161616;
+    -fx-padding: 4px;
+}
+
+.boutique-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F0EAD6;
+    -fx-padding: 0;
+}
+
+.boutique-list .list-cell:filled:hover {
+    -fx-background-color: #222222;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.boutique-list .list-cell:filled:selected,
+.boutique-list .list-cell:filled:selected:focused {
+    -fx-background-color: #1E1A14;
+    -fx-background-radius: 6;
+}
+
+/* Прибираємо стандартний фокус-кант */
+.boutique-list:focused {
+    -fx-background-insets: 0;
+}
+
+/* ── Скролбари ───────────────────────────── */
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 6px;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #2A2A2A;
+    -fx-background-radius: 3px;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* ── Alert ───────────────────────────────── */
+.dialog-pane {
+    -fx-background-color: #1C1C1C;
+    -fx-border-color: #2A2A2A;
+}
+
+.dialog-pane .content.label {
+    -fx-text-fill: #F0EAD6;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #C8963E;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}

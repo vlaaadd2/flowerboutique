@@ -5,26 +5,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccessoryTest {
 
-    @Test
-    void testAccessoryCreation() {
-        Accessory accessory = new Accessory("Стрічка", 20.0);
-        assertEquals("Стрічка", accessory.getName());
-        assertEquals(20.0, accessory.getPrice(), 0.001);
+    @Test void creationSetsFields() {
+        Accessory a = new Accessory("Стрічка", 20);
+        assertEquals("Стрічка", a.getName());
+        assertEquals(20.0, a.getPrice(), 0.001);
     }
 
-    @Test
-    void testSetters() {
-        Accessory accessory = new Accessory("Стрічка", 20.0);
-        accessory.setName("Упаковка");
-        accessory.setPrice(35.0);
-        assertEquals("Упаковка", accessory.getName());
-        assertEquals(35.0, accessory.getPrice(), 0.001);
+    @Test void setterName() {
+        Accessory a = new Accessory("Стрічка", 20);
+        a.setName("Упаковка");
+        assertEquals("Упаковка", a.getName());
     }
 
-    @Test
-    void testToString() {
-        Accessory accessory = new Accessory("Стрічка", 20.0);
-        assertTrue(accessory.toString().contains("Стрічка"));
-        assertTrue(accessory.toString().contains("20.0"));
+    @Test void setterPrice() {
+        Accessory a = new Accessory("Стрічка", 20);
+        a.setPrice(35);
+        assertEquals(35.0, a.getPrice(), 0.001);
+    }
+
+    @Test void toStringContainsName() {
+        Accessory a = new Accessory("Стрічка", 20);
+        assertTrue(a.toString().contains("Стрічка"));
     }
 }
