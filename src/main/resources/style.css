@@ -1,11 +1,9 @@
-/* ===== FLOWER BOUTIQUE — Global Styles ===== */
-
 .root {
     -fx-background-color: #0D0D0D;
     -fx-font-family: 'Segoe UI', 'SF Pro Display', Helvetica, Arial, sans-serif;
 }
 
-/* ── Списки ─────────────────────────────── */
+
 .boutique-list {
     -fx-background-color: #161616;
     -fx-border-color: #2A2A2A;
@@ -34,12 +32,16 @@
     -fx-background-radius: 6;
 }
 
-/* Прибираємо стандартний фокус-кант */
 .boutique-list:focused {
     -fx-background-insets: 0;
 }
 
-/* ── Скролбари ───────────────────────────── */
+
+
+
+
+
+
 .scroll-bar:vertical,
 .scroll-bar:horizontal {
     -fx-background-color: transparent;
@@ -64,7 +66,11 @@
     -fx-padding: 0;
 }
 
-/* ── Alert ───────────────────────────────── */
+
+
+
+
+
 .dialog-pane {
     -fx-background-color: #1C1C1C;
     -fx-border-color: #2A2A2A;

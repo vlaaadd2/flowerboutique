@@ -24,7 +24,9 @@ class BouquetServiceTest {
         bouquet = new Bouquet();
     }
 
-    // ── addFlowerToBouquet ─────────────────────────────────
+
+
+
 
     @Test void addAvailableFlowerSucceeds() {
         Rose r = new Rose(150, 60, 10, "rose.png", true, 5);
@@ -41,7 +43,9 @@ class BouquetServiceTest {
         verify(mockDb, never()).updateFlowerStock(any());
     }
 
-    // ── removeFlowerFromBouquet ────────────────────────────
+
+
+
 
     @Test void removeFlowerReturnsToStock() {
         Tulip t = new Tulip(80, 45, 7, "tulip.png", 5);
@@ -53,7 +57,9 @@ class BouquetServiceTest {
         verify(mockDb).updateFlowerStock(t);
     }
 
-    // ── sortFlowersByFreshness ─────────────────────────────
+
+
+
 
     @Test void sortOrderIsDescending() {
         Rose  fresh = new Rose(150, 60, 10, "r.png", true, 5);
@@ -73,7 +79,9 @@ class BouquetServiceTest {
         assertDoesNotThrow(() -> service.sortFlowersByFreshness(bouquet));
     }
 
-    // ── findFlowersByStemLength ────────────────────────────
+
+
+
 
     @Test void findReturnsMatchingFlowers() {
         bouquet.addFlower(new Rose(150, 60, 10, "r.png", true, 5));

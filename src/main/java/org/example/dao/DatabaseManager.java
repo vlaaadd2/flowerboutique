@@ -8,11 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DatabaseManager — єдина точка доступу до SQLite бази даних.
- * Відповідає за створення таблиць, додавання, отримання
- * та оновлення кількості квітів на складі.
- */
+
 public class DatabaseManager {
 
     private static final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
@@ -23,7 +19,7 @@ public class DatabaseManager {
         logger.info("DatabaseManager ініціалізовано. БД: {}", DB_URL);
     }
 
-    /** Створює таблицю flowers, якщо її ще немає. */
+
     private void createTables() {
         String sql = """
                 CREATE TABLE IF NOT EXISTS flowers (
@@ -41,6 +37,7 @@ public class DatabaseManager {
                     head_diameter    REAL    DEFAULT 0.0
                 );
                 """;
+
         try (Connection conn = DriverManager.getConnection(DB_URL);
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
@@ -50,8 +47,9 @@ public class DatabaseManager {
         }
     }
 
-    /** Додає квітку до бази даних. */
+
     public void addFlowerToDB(Flower flower) {
+
         String sql = """
                 INSERT INTO flowers
                     (flower_type, price, stem_length, freshness_level, image_path,
@@ -83,17 +81,21 @@ public class DatabaseManager {
         }
     }
 
-    /** Повертає всі квіти з бази даних. */
+
     public List<Flower> getAllFlowers() {
+
         List<Flower> flowers = new ArrayList<>();
         String sql = "SELECT * FROM flowers ORDER BY flower_type, price";
+
         try (Connection conn = DriverManager.getConnection(DB_URL);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
+
             while (rs.next()) {
                 Flower f = mapRowToFlower(rs);
                 if (f != null) flowers.add(f);
             }
+
             logger.debug("Отримано {} квітів з БД.", flowers.size());
         } catch (SQLException e) {
             logger.error("Помилка отримання квітів: {}", e.getMessage(), e);
@@ -101,15 +103,14 @@ public class DatabaseManager {
         return flowers;
     }
 
-    /**
-     * Оновлює кількість квітки на складі.
-     * Викликається при додаванні або поверненні квітки з букета.
-     */
+
     public void updateFlowerStock(Flower flower) {
+
         String sql = """
                 UPDATE flowers SET stock_quantity = ?
                 WHERE flower_type = ? AND ABS(price - ?) < 0.001 AND ABS(stem_length - ?) < 0.001
                 """;
+
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, flower.getStockQuantity());
@@ -123,8 +124,9 @@ public class DatabaseManager {
         }
     }
 
-    /** Перетворює рядок ResultSet на конкретний підклас Flower. */
+
     private Flower mapRowToFlower(ResultSet rs) throws SQLException {
+
         String type      = rs.getString("flower_type");
         double price     = rs.getDouble("price");
         double stemLen   = rs.getDouble("stem_length");

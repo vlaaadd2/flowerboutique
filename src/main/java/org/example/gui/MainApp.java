@@ -214,10 +214,13 @@ public class MainApp extends Application {
         VBox.setVgrow(bouquetSection, Priority.ALWAYS);
         sidebar.getChildren().addAll(header, assortmentSection, bouquetSection, priceBox);
 
-        // ── Обробники ─────────────────────────────────────────
+
         addBtn.setOnAction(e -> {
             Flower sel = assortmentListView.getSelectionModel().getSelectedItem();
             if (sel == null) { showAlert("Оберіть квітку зі списку асортименту."); return; }
+
+            //logger.error("КРИТИЧНА ПОМИЛКА: Збій системи при спробі обробити квітку '{}'!", sel.getName());
+
             if (!sel.isAvailable()) {
                 showAlert("Квітка «" + sel.getName() + "» закінчилась на складі!");
                 return;
